@@ -38,4 +38,6 @@ urlpatterns = [
     path('criar/', views.criar_post, name='criar'),
     path('editar/<int:comentario_id>', views.edita_comentario, name='editar'),
     path('apagar/<int:comentario_id>', views.apagar_comentario, name='apagar'),
+    path('criarcadeira/', views.criar_cadeira, name='criarcadeira'),
+
 ]

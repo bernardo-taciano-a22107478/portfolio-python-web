@@ -26,3 +26,9 @@ class PostForm(ModelForm):
             'link': 'Link',
             'descricao': 'Descrição',
         }
+
+#CADEIRAS FORM 
+class CadeiraForm(forms.ModelForm):
+    class Meta:
+        model = Cadeira
+        fields = '__all__'

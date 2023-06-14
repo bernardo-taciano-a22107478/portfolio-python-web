@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
-from portfolio.forms import PostForm
+from portfolio.forms import CadeiraForm, PostForm
 from django.contrib.auth.decorators import login_required
 from .models import *
 
@@ -116,12 +116,17 @@ def apagar_comentario(request, comentario_id):
     Post.objects.get(id=comentario_id).delete()
     return HttpResponseRedirect(reverse('portfolio:blog'))
 
-'''
 
 
 
-
-
-'''
-
-
+# CRIAÇÃO DE NOVA CADEIRA --
+@login_required
+def criar_cadeira(request):
+    if request.method == 'POST':
+        form = CadeiraForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('portfolio:licenciatura')  # Redirecione para uma página de sucesso após a criação do post
+    else:
+        form = CadeiraForm()
+    return render(request, 'portfolio/criarcadeira.html', {'form': form})
