@@ -131,7 +131,7 @@ def criar_cadeira(request):
         form = CadeiraForm()
     return render(request, 'portfolio/criarcadeira.html', {'form': form})
 
-
+@login_required
 def apagar_cadeira(request, cadeira_id):
     Cadeira.objects.get(id=cadeira_id).delete()
     return HttpResponseRedirect(reverse('portfolio:licenciatura'))
@@ -150,3 +150,8 @@ def criar_projeto(request):
     else:
         form = ProjetoForm()
     return render(request, 'portfolio/criarprojeto.html', {'form': form})
+
+@login_required
+def apagar_projeto(request, projeto_id):
+    Projeto.objects.get(id=projeto_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:projetos'))

@@ -118,8 +118,12 @@
                 <b>Participantes:</b>
                 {% for autores in projeto.participantes.all %}
                     <div class="project-participants">{{autores}}</div>
-                {% endfor %}
+                {% endfor %} 
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'portfolio:apagarprojeto' projeto_id=projeto.id %}" role="button">Apagar</a>
+                {% endif %} 
             </li> 
+           
         {% endfor %}
     </ul>
 
