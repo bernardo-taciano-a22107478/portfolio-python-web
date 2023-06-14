@@ -1,0 +1,52 @@
+{% extends "portfolio/layout.html" %}
+
+{% load static %}
+
+{% block style %}
+<style>
+.login{
+   margin-top: 100px;
+   text-align: center;
+}
+
+.login input {
+   margin: 10px;
+}
+
+.button {
+    background-color: #3fab44;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  .red {
+    background-color: rgb(255, 83, 83);
+}
+</style>
+{% endblock %}
+
+{% block main %}
+  
+<h3>Login</h3>
+
+<div class="login">
+
+
+   <form action="{% url 'portfolio:login' %}" method="POST">
+      {% csrf_token %}
+      <input type="text" name="username" placeholder="username">
+      <input type="password" name="password" placeholder="password">
+      <input type="submit" value="Login">
+  </form>
+
+   
+</div>
+
+{% endblock main %}

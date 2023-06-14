@@ -1,0 +1,142 @@
+{% extends 'portfolio/layout.html' %}
+
+{% load static %}
+
+{% block style %}
+    <style>
+        img {
+            margin: auto;
+            border-radius: 20px;
+        }
+        .project-year {
+            font-size: 12px;
+            color: #999;
+        }
+        .project-link {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+            border-bottom: 2px solid #333;
+            transition: border-bottom-color 0.3s ease-in-out;
+        }
+        .project-link:hover {
+            border-bottom-color: #666;
+        }
+        .technologies {
+            margin-top: 20px;
+        }
+        .technology {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 5px 10px;
+            background-color: #ccc;
+            border-radius: 5px;
+            font-size: 12px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .technology:hover {
+            background-color: #666;
+            color: #fff;
+        }
+
+        .list-project {
+            text-align: center;
+            padding: 40px;
+            display: flex;
+            gap: 30px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #e9e9e9;
+            width: 700px;
+            border-radius: 20px;
+            margin: 10px auto;
+        }
+
+        .list-project p {
+            font-weight: 700;
+            line-height: 1.5;
+            text-align: justify;
+            max-width: 700px;
+        }
+
+        .list-project a {
+            color: black;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        @media (max-width: 991px){
+            img {
+                max-width: 300px;
+            }
+            .list-project  {
+                padding: 10px;
+            }
+        }
+    </style>
+
+{% endblock %}
+
+
+
+
+{% block main %}
+
+    <div class="this-website-header">
+        <h2>Projetos Universidade</h2>
+    </div>
+
+    <ul>
+        {% for projeto in projetos %}
+            <li class="list-project">
+            
+                <h2>{{projeto.titulo}}</h2>
+                <a href=""><img src="{{projeto.imagem.url}}" width="600px" alt="Projeto Fundamentos De Programação"></a>
+                <p>{{projeto.descricao}}</p>
+                <b>Linguagem:</b>
+                {% for linguagem in projeto.tecnologias.all %}
+                    <il>{{linguagem}}</il>
+                {% endfor %}
+                <div class="project-course"><b>Ano de realização</b>: {{projeto.ano}}º</div>
+                <div class="project-course"><b>Cadeira</b>: {{projeto.cadeira}}</div>   
+                <b>Participantes:</b>
+                {% for autores in projeto.participantes.all %}
+                    <div class="project-participants">{{autores}}</div>
+                {% endfor %}
+            </li> 
+        {% endfor %}
+    </ul>
+
+
+    <hr>
+
+
+    <ul>
+        <h1 style="text-align: center;">Trabalhos Finais De Curso</h1>
+        {% for tfc in tfcs %}
+            <li class="list-project">
+            
+                <h2>{{tfc.titulo}}</h2>
+                <b>Autor(es):</b>
+                {% for autores in tfc.autor.all %}
+                    <div class="project-participants">{{autores}}</div>
+                {% endfor %}
+                <b>Orientador(es):</b>
+                {% for orientador in tfc.orientadores.all %}
+                    <div class="project-participants">{{orientador}}</div>
+                {% endfor %}
+                <p>{{tfc.ano}}</p>
+                <p>{{tfc.resumo}}</p>
+                <a href="{{tfc.relatorio}}">Link Relatorio</a>
+                
+            </li> 
+        {% endfor %}
+    </ul>
+
+{% endblock %}

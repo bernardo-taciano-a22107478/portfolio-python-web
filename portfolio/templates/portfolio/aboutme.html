@@ -1,0 +1,128 @@
+{% extends 'portfolio/layout.html' %}
+
+{% load static %}
+
+{% block style %}
+    <style>
+        #main {
+            margin-top: 100px;
+        }
+
+        div.parallax {
+            margin: 40px;
+        }
+
+        .parallax {
+            border-radius: 10px;
+            background-image: url("/portfolio/static/portfolio/images/backgroundBuilds.jpg");
+            min-height: 200px; 
+            background-attachment: fixed;
+            background-position: top;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #about {
+            background-color: #fff;
+            position: relative;
+            z-index: 2;
+        }
+        #about h2 {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        #about p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 0 50px;
+            text-align: justify;
+        }
+        #about::before {
+            content: "";
+            background-image: url(bg.jpg);
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 30px;
+            height: 0;
+            overflow: hidden;
+        }
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+{% endblock %}
+
+
+{% block main %}
+    <div id="main">
+        <section id="about">
+        <h2>Sobre Mim</h2>
+        <p>Olá, eu sou o Bernardo Taciano e tenho 19 anos. Uma das minhas maiores paixões é a programação - gosto de criar soluções criativas e 
+            funcionais através de código. Quando não estou a programar, 
+            gosto de sair e passear, conhecer novos lugares e estar com amigos e família.
+            <br>
+            Atualmente, estou a estudar Engenharia Informática e a aprofundar os meus conhecimentos nesta área fascinante. 
+            Considero-me uma pessoa muito positiva e alegre, e tento sempre manter-me organizado e focado em tudo o que faço.</p>
+    </section>
+
+
+    <div class="parallax"></div>
+
+
+    <section id="about">
+        <h2>Objetivos</h2>
+        <p>Contribuir para um mundo melhor, através de pequenas ações diárias que ajudem a preservar o meio ambiente, 
+            a promover a igualdade e a justiça social, e a melhorar a vida das pessoas à minha volta.
+            Ser feliz e viver a vida ao máximo, desfrutando de tudo o que ela tem para oferecer e enfrentando 
+            os desafios com coragem e determinação.</p>
+            <br>
+            <p>
+                Fazer a diferença na vida das pessoas, contribuindo para a criação de soluções 
+                inovadoras e eficientes que melhorem a qualidade de vida e promovam o bem-estar social.
+            </p>
+    </section>
+
+
+    <div class="parallax"></div>
+
+    <section id="about">
+        <h2>Motivações</h2>
+        <p>Engenharia Informática é uma área em constante crescimento e evolução. 
+            Escolhi o curso de Engenharia Informática porque sempre fui apaixonado por tecnologia e inovação. 
+            <br>
+            Sempre tive interesse em aprender como as coisas funcionam e como posso usar a tecnologia para melhorar a
+            vida das pessoas. Além disso, o mercado de trabalho em Engenharia Informática é muito promissor e 
+            oferece muitas oportunidades para crescer e se desenvolver.</p>
+    </section>
+    </div>
+
+
+
+    <hr>
+
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/PqWRGqIEW0w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+{% endblock %}
+

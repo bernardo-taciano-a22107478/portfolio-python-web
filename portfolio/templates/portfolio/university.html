@@ -1,0 +1,260 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+
+    <h1 class="titulo_seccao">Unidades Curriculares</h1>
+    <div class="licenciatura">
+            {% for cadeira in cadeiras %}
+                    <div>
+                        <h3><a href="{{cadeira.link}}" class="titulo">{{cadeira.nome}}</a></h3>
+                        <p><b>ECTS: </b>{{cadeira.ects}}</p>
+                        <p><b>Ano Letivo: </b> {{cadeira.anoLectivo}}º</p>
+                        <p><b>Semestre: </b>{{cadeira.semestre}}º</p>
+                        <p><b>Ano: </b>{{cadeira.ano}}</p>
+                        <p><b>Tópicos abordados: </b>{{cadeira.topicosAbordados}}</p>
+                        {% if cadeira.linguagens.all.count > 0 %}
+                            <p><b>Linguagens: </b> {% for linguagem in cadeira.linguagens.all %} {{linguagem.nome}}{% endfor %}</p>
+                        {% endif %}
+                        <p><b>Ranking (0-5): </b>{{cadeira.ranking}}</p>
+                        <p><b>Docente Teórica: </b><a href="{{cadeira.docente_teorica.linklusofona}}" class="links">{{cadeira.docente_teorica.nome}} {{cadeira.docente_teorica.apelido}}</a></p>
+                        <p><b>Docente Práticas: </b> 
+                            {% for docente_pratica in cadeira.docentes_praticas.all %}
+                                <a href="{{docentes_praticas.linklusofona}}" class="links"> {{docente_pratica.nome}} {{docente_pratica.apelido}}</a> 
+                            {% endfor %}
+                        </p>
+                        {% if cadeira.projetos.all.count > 0  %}
+                            <p>
+                                <b>Projetos: </b>
+                                {% for projeto in cadeira.projetos.all %}
+                                <a href="{% url 'portfolio:projetos' %}" class="links">{{projeto.titulo}}</a> 
+                                {% endfor %}
+                            </p>
+                        {% endif %}
+                    </div>
+            {% endfor %}
+    </div>    
+
+<!--
+    
+    <div class="table-uni">
+        <table>
+            <thead>
+                <th>1º ANO<br>Semestre</th>
+                <th>CADEIRAS</th>
+                <th>ECTS</th>
+            </thead>
+            <tr>
+                <td><strong>1º Semestre</strong></td>
+                <td>Fundamentos de física</td>
+                <td>6 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>1º Semestre</strong></td>
+                <td>Fundamentos de Programação</td>
+                <td>6 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>1º Semestre</strong></td>
+                <td>Matemática Discreta</td>
+                <td>6 Ects</td>
+            </tr>
+
+
+            <tr>
+                <td><strong>1º Semestre</strong></td>
+                <td>Matemática I</td>
+                <td>6 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>1º Semestre</strong></td>
+                <td>Sistemas Digitais</td>
+                <td>6 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>2º Semestre</strong></td>
+                <td>Algebra Linear</td>
+                <td>6 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>2º Semestre</strong></td>
+                <td>Algoritmia e Estrutura de Dados</td>
+                <td>6 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>2º Semestre</strong></td>
+                <td>Arquitetura de Computadores</td>
+                <td>5 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>2º Semestre</strong></td>
+                <td>Competências Comportamentais</td>
+                <td>4 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>2º Semestre</strong></td>
+                <td>Linguagens de Programação I</td>
+                <td>5 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>2º Semestre</strong></td>
+                <td>Matemática II</td>
+                <td>5 Ects</td>
+            </tr>
+
+            
+        </table>
+
+
+        <table>
+            <thead>
+                <th>2º ANO<br>Semestre</th>
+                <th>CADEIRAS</th>
+                <th>ECTS</th>
+            </thead>
+
+            <tr>
+                <td><strong>1º Semestre</strong></td>
+                <td>Arquitetura Avançadas de Computadores</td>
+                <td>6 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>1º Semestre</strong></td>
+                <td>Linguagens de Programação II</td>
+                <td>6 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>1º Semestre</strong></td>
+                <td>Sinais e Sistemas</td>
+                <td>6 Ects</td>
+            </tr>
+
+
+            <tr>
+                <td><strong>1º Semestre</strong></td>
+                <td>Sistemas Operativos</td>
+                <td>6 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>1º Semestre</strong></td>
+                <td>Bases De Dados</td>
+                <td>6 Ects</td>
+            </tr>
+
+        
+            <tr>
+                <td><strong>2º Semestre</strong></td>
+                <td>Engenharia de Requisitos e Testes</td>
+                <td>6 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>2º Semestre</strong></td>
+                <td>Processamento de Imagem</td>
+                <td>6 Ects</td>
+            </tr>
+            
+            <tr>
+                <td><strong>2º Semestre</strong></td>
+                <td>Programação Web</td>
+                <td>6 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>2º Semestre</strong></td>
+                <td>Redes De Computadores</td>
+                <td>6 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>2º Semestre</strong></td>
+                <td>Sistemas de Suporte à Decisão</td>
+                <td>6 Ects</td>
+            </tr>
+            
+        </table>
+        
+        <table>
+            <thead>
+                <th>3º ANO<br>Semestre</th>
+                <th>CADEIRAS</th>
+                <th>ECTS</th>
+            </thead>
+
+            <tr>
+                <td><strong>Anual</strong></td>
+                <td>Trabalho Final De Curso</td>
+                <td>20 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>1º Semestre</strong></td>
+                <td>Computação Distribuída</td>
+                <td>5 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>1º Semestre</strong></td>
+                <td>Data Science</td>
+                <td>5 Ects</td>
+            </tr>
+
+
+            <tr>
+                <td><strong>1º Semestre</strong></td>
+                <td>Engenharia De Software</td>
+                <td>5 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>1º Semestre</strong></td>
+                <td>Intereção Humano-Máquina</td>
+                <td>5 Ects</td>
+            </tr>
+
+        
+            <tr>
+                <td><strong>2º Semestre</strong></td>
+                <td>Engenharia de Requisitos e Testes</td>
+                <td>6 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>2º Semestre</strong></td>
+                <td>Computação Móvel</td>
+                <td>5 Ects</td>
+            </tr>
+            
+            <tr>
+                <td><strong>2º Semestre</strong></td>
+                <td>Inteligência Artificial</td>
+                <td>5 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>2º Semestre</strong></td>
+                <td>Segurança Informática</td>
+                <td>5 Ects</td>
+            </tr>
+
+            <tr>
+                <td><strong>2º Semestre</strong></td>
+                <td>Sistemas de Informação na Nuvem</td>
+                <td>5 Ects</td>
+            </tr>
+            
+        </table>
+    </div>
+-->
+{% endblock %}

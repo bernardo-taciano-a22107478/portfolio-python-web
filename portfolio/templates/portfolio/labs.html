@@ -1,0 +1,67 @@
+{% extends 'portfolio/layout.html' %}
+
+
+{% block style %}
+
+    <style>
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .lab-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .lab-item {
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .lab-title {
+            font-size: 24px;
+            margin: 0 0 10px 0;
+        }
+
+        .lab-title a{
+            color: #0061FF;
+            text-decoration: none;
+        }
+
+        .lab-desc {
+            margin: 0;
+        }
+    </style>
+
+
+{% endblock %}
+
+
+
+
+{% block main %}
+
+
+    <div class="this-website-header">
+        <h2>Laboratórios</h2>
+    </div>
+
+
+    <div class="container">
+        <ul class="lab-list">
+            {% for lab in labs %}
+            <li class="lab-item">
+                <h2 class="lab-title"><a href="{{lab.link}}">{{lab.titulo}}</a></h2>
+                <p class="lab-desc">{{lab.descricao}}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'portfolio/layout.html' %}
+
+
+{%load static%}
+
+{% block main %}
+
+
+    <div class="this-website-header">
+        <h2>Tecnologias Usadas</h2>
+    </div>
+
+
+    <section class="hobbies-section">
+        
+        <h1>Tecnologias usadas no website</h1>
+        <div class="tech-info">
+            <div>
+                <h2>HTML</h2>
+                <img src="{% static 'portfolio/images/html.png'%}" alt="HTML">
+            </div>
+            <div>
+                <p>Usada para estruturar e formatar o conteúdo de todas as página web, 
+                    incluindo texto, imagens, vídeos, áudios e outros elementos multimedia.</p>    
+            </div>
+        </div>
+        <div class="tech-info">
+            <div>
+                <h2>CSS</h2>
+                <img src="{% static 'portfolio/images/css.png'%}" alt="CSS Image">
+            </div>
+            <div>
+                <p>Utilizada para definir a aparência e o layout de elementos em todas as páginas web.</p>
+            </div>
+        </div>
+        <div class="tech-info">
+            <div>
+                <h2>JAVASCRIPT</h2>
+                <img src="{% static 'portfolio/images/JavaScript.png'%}" alt="JavaScript Image">
+            </div>
+            <div>
+                <p>Usada principalmente para tornar as páginas da web interativas e dinâmicas.</p>
+            </div>
+        </div>
+
+
+        <h1>Padrões Usados</h1>
+        <div class="tech-info">
+            <div>
+                <h2>Padrão arquitetural cliente-servidor HTTP</h2>
+                <p>É uma forma comum de distribuição de sistemas de software na web.</p>    
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

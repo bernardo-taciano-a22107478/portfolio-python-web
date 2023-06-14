@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+
+    <title>Hobbies</title>
+
+    <!-- JQUERY -->
+    <script
+  src="https://code.jquery.com/jquery-3.6.4.js"
+  integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+  crossorigin="anonymous"></script>
+
+    <!-- CSS REF -->
+    <link rel="stylesheet" href="{% static '/portfolio/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font REF -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    
+
+    {% block style %}
+    {% endblock %}
+</head>
+<body>
+
+
+    <header>
+        <div class="nav">
+            <ul class="menu">
+                <div class="close-btn"></div>
+
+                <li class="menu-item"><a href="{% url 'portfolio:home' %}">Home</a></li>
+
+
+                <li class="menu-item"><a class="sub-btn" href="{% url 'portfolio:projetos' %}">Projetos <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <ul class="sub-menu">
+                        <li class="sub-item"><a href="{% url 'portfolio:projetos' %}">Universidade</a></li>
+                    </ul>
+                </li>
+
+
+
+                <li class="menu-item"><a class="sub-btn" href="">Progr. Web <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <ul class="sub-menu">
+                        <li class="sub-item more">
+                            <a class="more-btn" href="{% url 'portfolio:tecnologias' %}">Tecnologias <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                            <ul class="more-menu">
+                                <li class="more-item"><a href="{% url 'portfolio:tecnologias' %}">Front-End</a></li>
+                                <li class="more-item"><a href="{% url 'portfolio:tecnologias' %}">Back-End</a></li>
+                            </ul>
+                        </li>
+                        <li class="sub-item"><a href="{% url 'portfolio:laboratorios' %}">Laboratórios</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="menu-item"><a href="{% url 'portfolio:tecusada' %}" class="sub-btn">Este website <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <ul class="sub-menu">
+                        <li class="sub-item"><a href="{% url 'portfolio:tecusada' %}">Tecnologias Usadas</a></li>
+                        <li class="sub-item"><a href="{% url 'portfolio:javascript' %}">Javascript</a></li>
+                    </ul>
+                    
+                </li>
+
+                <li class="menu-item">
+                    <a class="sub-btn" href="">Sobre mim <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <ul class="sub-menu">
+                        <li class="sub-item more">
+                            <a class="more-btn" href="{% url 'portfolio:licenciatura' %}">Licenciatura</a>
+                        </li>
+                        <li class="sub-item more">
+                            <a href="{% url 'portfolio:educacao' %}">Educação</a>
+                            
+                        </li>
+                        <li class="sub-item more">
+                            <a href="{% url 'portfolio:skills' %}">Skills</a>
+                            
+                        </li>
+                        <li class="sub-item"><a href="{% url 'portfolio:hobbies' %}">Hobbies</a></li>
+                        <li class="sub-item"><a href="{% url 'portfolio:sobre' %}">Sobre Mim</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-item"><a href="{% url 'portfolio:blog' %}">Blog</a></li>
+
+                <li class="menu-item"><a href="{% url 'portfolio:contacto' %}">Contacto</a></li>
+
+                                
+                {% if request.user.is_authenticated %}
+                
+                <li class="menu-item"><a href="{% url 'portfolio:logout' %}">{{request.user}} Logout</a></li>
+                {% else %}
+                <li class="menu-item"><a href="{% url 'portfolio:login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+        <div class="menu-btn"></div>
+    </header>
+
+  
+
+    {% block main %}
+        
+    {% endblock %}
+
+    
+    <footer>
+        <div class="social">
+            <a href="https://github.com/bernardo-taciano-a22107478"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/bernardo-taciano/"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+        </div>
+
+        <ul class="list">
+            <li>
+                <a href="{% url 'portfolio:home' %}">Home</a>
+            </li>
+            <li>
+                <a href="{% url 'portfolio:sobre' %}">Sobre Mim</a>
+            </li>
+            <li>
+                <a href="{% url 'portfolio:blog' %}">Blog</a>
+            </li>
+            <li>
+                <a href="{% url 'portfolio:contacto' %}">Contacto</a>
+            </li>
+        </ul>
+        <p class="copyright">Universidade Lusófona | Engenharia Informática</p>
+        <p class="copyright">Bernardo Taciano - a22107478</p>
+    </footer>
+
+    <script>
+        var menu = document.querySelector(".menu");
+        var menuBtn = document.querySelector(".menu-btn");
+        var closeBtn = document.querySelector(".close-btn");
+
+        menuBtn.addEventListener("click", () => {
+            menu.classList.add("active");
+        });
+
+        closeBtn.addEventListener("click", () => {
+            menu.classList.remove("active");
+        })
+    </script>
+</body>
+</html>

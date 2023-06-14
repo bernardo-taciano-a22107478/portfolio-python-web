@@ -1,0 +1,25 @@
+
+{% extends 'portfolio/layout.html' %}
+
+{% load static %}
+
+
+{% block main %}
+    <section class="hobbies-header">
+        <h1>Hobbies</h1>
+    </section>
+
+    <section class="hobbies-section">
+        {%for hobbie in hobbies %}
+            <div class="hobbies-info">
+                <div>
+                    <h2>{{hobbie.titulo}}</h2>
+                    <img src="{{hobbie.imagem.url}}" alt="{{imagem.titulo}}">
+                </div>
+                <div>
+                    <p>{{hobbie.descricao}}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}
