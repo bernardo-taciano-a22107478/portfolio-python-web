@@ -122,6 +122,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # default static files settings for PythonAnywhere.
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
 MEDIA_URL = ''
-STATIC_URL = '/static/'
+STATIC_URL = '/static/portfolio/'
 STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))] # verificar
 STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))   
