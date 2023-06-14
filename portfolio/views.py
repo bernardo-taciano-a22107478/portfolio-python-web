@@ -102,8 +102,8 @@ def criar_post(request):
 
 @login_required
 def edita_comentario(request, comentario_id):
-    tarefa = Post.objects.get(id=comentario_id)
-    form = PostForm(request.POST or None, instance=tarefa)
+    comentario = Post.objects.get(id=comentario_id)
+    form = PostForm(request.POST or None, instance=comentario)
 
     if form.is_valid():
         form.save()
