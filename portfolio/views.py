@@ -130,3 +130,8 @@ def criar_cadeira(request):
     else:
         form = CadeiraForm()
     return render(request, 'portfolio/criarcadeira.html', {'form': form})
+
+
+def apagar_cadeira(request, cadeira_id):
+    Cadeira.objects.get(id=cadeira_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:licenciatura'))

@@ -41,6 +41,10 @@
                                 {% endfor %}
                             </p>
                         {% endif %}
+
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'portfolio:apagarcadeira' cadeira.id %}">Apagar Cadeira</a>
+                        {% endif %} 
                     </div>
             {% endfor %}
     </div>    
