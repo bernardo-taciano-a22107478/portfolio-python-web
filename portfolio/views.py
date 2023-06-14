@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
-from portfolio.forms import CadeiraForm, PostForm
+from portfolio.forms import CadeiraForm, PostForm, ProjetoForm
 from django.contrib.auth.decorators import login_required
 from .models import *
 
@@ -135,3 +135,18 @@ def criar_cadeira(request):
 def apagar_cadeira(request, cadeira_id):
     Cadeira.objects.get(id=cadeira_id).delete()
     return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+
+
+
+
+# CRIAÇÃO DE NOVO PROJETO --
+@login_required
+def criar_projeto(request):
+    if request.method == 'POST':
+        form = ProjetoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('portfolio:projetos')  # Redirecione para uma página de sucesso após a criação do post
+    else:
+        form = ProjetoForm()
+    return render(request, 'portfolio/criarprojeto.html', {'form': form})

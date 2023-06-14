@@ -32,3 +32,10 @@ class CadeiraForm(forms.ModelForm):
     class Meta:
         model = Cadeira
         fields = '__all__'
+
+#CADEIRAS FORM 
+class ProjetoForm(forms.ModelForm):
+    class Meta:
+        model = Projeto
+        fields = '__all__'
+

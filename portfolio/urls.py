@@ -40,4 +40,6 @@ urlpatterns = [
     path('apagar/<int:comentario_id>', views.apagar_comentario, name='apagar'),
     path('criarcadeira/', views.criar_cadeira, name='criarcadeira'),
     path('apagarcadeira/<int:cadeira_id>', views.apagar_cadeira, name='apagarcadeira'),
+    path('criarprojeto/', views.criar_projeto, name='criarprojeto'),
+
 ]
