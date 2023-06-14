@@ -56,7 +56,7 @@ def aboutme_view(request):
 
 
 def blog_view(request):
-    context = {'posts': Post.objects.all()}
+    context = {'posts': Post.objects.all(), 'noticias' : Noticia.objects.all()}
     return render(request, 'portfolio/blog.html', context)
 
 

@@ -125,7 +125,7 @@ class Noticia(models.Model):
     titulo = models.CharField(max_length=50)
     descricao = models.CharField(max_length=1000)
     link = models.CharField(max_length=1000)
-    imagem = models.ImageField(upload_to="static/portfolio/images", blank=True)
+    imagem = models.URLField(max_length = 200)
 
     def __str__(self):
         return self.titulo[:50]

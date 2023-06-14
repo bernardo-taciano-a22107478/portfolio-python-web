@@ -63,4 +63,23 @@
         </div>
 
     </div>
+
+    <h1 style="text-align: center;">Notícias</h1>
+    <section class="hobbies-section">
+        {%for noticia in noticias %}
+            <div class="hobbies-info">
+                <div>
+                    <h2>{{noticia.titulo}}</h2>
+                    <img src="{{noticia.imagem}}" alt="{{noticia.titulo}}">
+                </div>
+                <div>
+                    <p>{{noticia.descricao}}</p>
+                </div>
+                <div>
+                    <a href="{{noticia.link}}">Visitar</a>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+
 {% endblock %}
