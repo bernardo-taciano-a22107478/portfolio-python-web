@@ -99,11 +99,11 @@
         <li class="list-project">
             {% if request.user.is_authenticated %}
             <a href="{% url 'portfolio:criarprojeto' %}" class="button">+ Adicionar Projeto</a>
-            {% endif %} 
+            {% endif %}
         </li>
         {% for projeto in projetos %}
             <li class="list-project">
-            
+
                 <h2>{{projeto.titulo}}</h2>
                 {% if projeto.imagem.url != '' %}
                     <a href=""><img src="{{projeto.imagem.url}}" width="600px" alt="Projeto Fundamentos De Programação"></a>
@@ -114,16 +114,15 @@
                     <il>{{linguagem}}</il>
                 {% endfor %}
                 <div class="project-course"><b>Ano de realização</b>: {{projeto.ano}}º</div>
-                <div class="project-course"><b>Cadeira</b>: {{projeto.cadeira}}</div>   
                 <b>Participantes:</b>
                 {% for autores in projeto.participantes.all %}
                     <div class="project-participants">{{autores}}</div>
-                {% endfor %} 
+                {% endfor %}
                 {% if request.user.is_authenticated %}
                     <a href="{% url 'portfolio:apagarprojeto' projeto_id=projeto.id %}" role="button">Apagar</a>
-                {% endif %} 
-            </li> 
-           
+                {% endif %}
+            </li>
+
         {% endfor %}
     </ul>
 
@@ -135,7 +134,7 @@
         <h1 style="text-align: center;">Trabalhos Finais De Curso</h1>
         {% for tfc in tfcs %}
             <li class="list-project">
-            
+
                 <h2>{{tfc.titulo}}</h2>
                 <b>Autor(es):</b>
                 {% for autores in tfc.autor.all %}
@@ -148,8 +147,8 @@
                 <p>{{tfc.ano}}</p>
                 <p>{{tfc.resumo}}</p>
                 <a href="{{tfc.relatorio}}">Link Relatorio</a>
-                
-            </li> 
+
+            </li>
         {% endfor %}
     </ul>
 

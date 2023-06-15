@@ -124,4 +124,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = ''
 STATIC_URL = '/static/portfolio/'
 STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))] # verificar
-STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
+STATIC_ROOT = "/home/bernardotaciano/config/portfolio/static/"
