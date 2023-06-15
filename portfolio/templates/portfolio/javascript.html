@@ -14,7 +14,7 @@
         }
         .main{
             margin-top: 100px;
-            text-align: center;        
+            text-align: center;
         }
 
         #image-container {
@@ -67,13 +67,13 @@
         transition: background-color 0.5s ease, transform 0.3s ease;
         transform-origin: center;
     }
-    
+
     .quadrado:hover {
         background-color: red;
         cursor: pointer;
         transform: scale(1.1);
     }
-    
+
     .quadrado-clicked {
         background-color: green;
         transform: scale(1.2) rotate(45deg);
@@ -237,7 +237,7 @@
         <input type="text" id="name" name="name" required>
         <button type="button" id="submit-btn">Mostrar Nome</button>
     </form>
-    
+
 
     <p id="greeting" class="hidden">Bem Vindo, <span id="greeting-username"></span>!</p>
 
@@ -302,6 +302,6 @@
         <circle cx="50" cy="70" r="5" fill="#333"/>
         <circle cx="70" cy="70" r="5" fill="#333"/>
     </svg>
-    <script src="{% static 'portfolio/script.js' %}" type="text/javascript"></script>
+    <script src="{% static '/script.js' %}" type="text/javascript"></script>
 
 {% endblock %}
