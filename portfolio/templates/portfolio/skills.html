@@ -7,6 +7,24 @@
     <title>Skills</title>
     <link rel="icon" href="{% static '/images/skills.png' %}">
 
+    <style>
+        .skills-content div h3, h4{
+            font-weight: normal;
+            font-size: 1.3em;
+            color: rgb(76, 123, 225);
+        }
+
+        .skills-content a{
+            text-decoration: none;  
+            color: white;  
+            
+        }
+
+        .skills-content a:hover{
+            text-decoration: underline;  
+            
+        }
+    </style>
 {% endblock %}
 
 {% block main %}
@@ -16,6 +34,29 @@
     </section>
 
     <div class="skills-text">
+        <h1>Competências Desenvolvidas</h1>
+        <div class="skills-content" id="tecnicas">
+            {% for competencia in competencias %}
+                <div>
+                    
+                    <h2>{{competencia.titulo}}</h2>
+                    <h3><b>Desenvolvida em:</b> 
+                        {% for cadeira in competencia.disciplinas.all %}
+                            <a href="{% url 'portfolio:licenciatura' %}">{{cadeira}},</a>
+                        {% endfor %}
+                    </h3>
+                    <h4><b>Através de:</b>
+                        {% for projeto in competencia.projetos.all %}
+                            <a href="{% url 'portfolio:projetos' %}">{{projeto}}</a>
+                        {% endfor %}
+                    </h4>
+                    
+                </div>
+            {% endfor %}
+           
+           
+        </div>
+
         <h1>Técnicas</h1>
         <div class="skills-content" id="tecnicas">
             <div>

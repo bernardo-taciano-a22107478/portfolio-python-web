@@ -43,7 +43,8 @@ def education_view(request):
 
 
 def skills_view(request):
-    return render(request, 'portfolio/skills.html')
+    context = {'competencias' : Competencia.objects.all()}
+    return render(request, 'portfolio/skills.html', context)
 
 
 def hobbies_view(request):
